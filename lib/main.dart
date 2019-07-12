@@ -47,24 +47,24 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     bool hasPosts = posts == null || posts.isEmpty;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Container(
-        child: hasPosts
-            ? Center(
-                child: Text('There is no Posts'),
-              )
-            : ListView.builder(
-                itemCount: posts.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return ListTile(
-                    title: Text(posts[index].title),
-                    onTap: () {},
-                  );
-                },
-              ),
-      ),
+      appBar: AppBar(title: Text(widget.title)),
+      body: Container(child: hasPosts ? _buildEmptyState() : _buildPostList()),
+    );
+  }
+
+  Widget _buildEmptyState() {
+    return Center(child: Text('There is no Posts'));
+  }
+
+  ListView _buildPostList() {
+    return ListView.builder(
+      itemCount: posts.length,
+      itemBuilder: (BuildContext context, int index) {
+        return ListTile(
+          title: Text(posts[index].title),
+          onTap: () {},
+        );
+      },
     );
   }
 }
