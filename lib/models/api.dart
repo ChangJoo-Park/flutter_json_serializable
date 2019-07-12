@@ -1,4 +1,3 @@
-// https://jsonplaceholder.typicode.com/posts
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
