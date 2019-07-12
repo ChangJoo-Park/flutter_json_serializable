@@ -45,12 +45,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    bool hasPosts = posts == null || posts.isEmpty;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Container(
-        child: posts == null || posts.isEmpty
+        child: hasPosts
             ? Center(
                 child: Text('There is no Posts'),
               )
